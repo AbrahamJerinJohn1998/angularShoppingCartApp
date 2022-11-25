@@ -1,33 +1,29 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container" *ngFor="let i of data">
     <div class="row">
         <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
             <h5>ShoppingCartApp</h5>
-       <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Product Id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Category</th>
-            <th scope="col">Description</th>
-            <th scope="col">Image</th>
-            <th scope="col">Rating</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let i of data">
-            <td>{{i.id}}</td>
-            <td>{{i.title}}</td>
-            <td>{{i.price}}</td>
-            <td>{{i.category}}</td>
-            <td>{{i.description}}</td>
-            <td>{{i.image}}</td>
-            <td>{{i.rating}}</td>
-        </tr>
-        
-    </tbody>
-       </table>
+            <div class="row g-3 mt-4">
+                <div class="col col-sm-6 col-md-4 col-lg-2 col-xl-3 col-xxl-3">
+                    <div class="card" style="width: 18rem;">
+                        <img height=300px src="{{i.image}}" class="card-img-top" alt="...">
+                        <div style="height: 250px;overflow-y: hidden;" class="card-body">
+                          <h5 class="card-title">{{i.title}}</h5>
+                          <p class="card-text">{{i.description}}</p>
+                        </div>
+                        <ul class="list-group list-griup-flush">
+                            <li class="list-group-item">Id: {{i.id}}</li>
+                            <li class="list-group-item">Price: {{i.price}}</li>
+                            <li class="list-group-item">Category: {{i.category}}</li>
+                            <li class="list-group-item">Rate: {{i.rating.rate}}</li>
+                            <li class="list-group-item">Count: {{i.rating.count}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="0" class="btn btn-primary">Buy now</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
